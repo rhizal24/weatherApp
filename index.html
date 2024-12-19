@@ -60,22 +60,6 @@
     async function checkWeather(city) {
       const reponse = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
-      if (response.status == 404) {
-        document.querySelector(".error").style.display = "block";
-        document.querySelector(".weather").style.display = "none";
-      } else {
-        if (data.weather[0].main == "Clouds") {
-          weatherIcon.src = "images/bright.png";
-        } else if (data.weather[0].main == "Rain") {
-          weatherIcon.src = "images/rain.png";
-        } else if (data.weather[0].main == "Clear") {
-          weatherIcon.src = "images/hot_2.png";
-        } else if (data.weather[0].main == "Snow") {
-          weatherIcon.src = "images/snow.png";
-        } else {
-          weatherIcon.src = "images/fullCloudy.png";
-        }
-      }
       var data = await reponse.json();
 
       console.log(data);
@@ -99,7 +83,6 @@
       }
 
       document.querySelector(".weather").style.display = "block";
-      document.querySelector(".error").style.display = "none";
     }
 
     searchBtn.addEventListener("click", () => {
